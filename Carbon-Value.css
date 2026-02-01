@@ -1,0 +1,82 @@
+/* 
+   Deployment Stylesheet (Carbon-Value.css)
+   Contains global overrides, animations, and scrollbar configurations 
+   that complement the Tailwind utility classes for the production deployment.
+*/
+
+/* Base Styles */
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #020617; /* matches bg-slate-950 */
+  color: #f1f5f9; /* matches text-slate-100 */
+}
+
+/* Custom Scrollbar Implementation for Webkit Browsers */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a; /* slate-900 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155; /* slate-700 */
+  border-radius: 5px;
+  border: 2px solid #0f172a; /* Creates padding effect against track */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569; /* slate-600 */
+}
+
+/* Animation Utilities */
+/* Specifically used in WhatIfAnalysis.tsx for the AI response appearance */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Glassmorphism Utilities */
+/* Ensures consistent glass effects across the app */
+.glass-effect {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Recharts Tooltip Override */
+/* Ensures tooltips appear cleanly above other elements */
+.recharts-tooltip-wrapper {
+  z-index: 100;
+  outline: none;
+}
+
+.recharts-default-tooltip {
+  border-radius: 0.75rem !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important;
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+/* Root container height fix */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

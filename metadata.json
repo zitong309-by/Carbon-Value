@@ -1,0 +1,5 @@
+{
+  "name": "CarbonValue AI",
+  "description": "A dual-interface application for calculating embodied carbon in buildings and predicting real estate asset valuation based on carbon risks and low-carbon premiums.",
+  "requestFramePermissions": []
+}
